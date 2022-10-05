@@ -9,7 +9,7 @@ def index(request):
                 'ru': 'Руская', 'uk': 'Украінская', 'pl': 'Польская'
                      }
         detected = languages.get(answer, 'Невядомая мова!')
-        context = {"answer": detected, "result": answer}
+        context = {"answer": detected, "result": action}
         return render(request, 'app/index.html', context=context)
     else:
         context = {"answer": ""}
