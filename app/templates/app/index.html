@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Вызначэнне мовы тэксту{% endblock %}</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script type="text/javascript" src="{% static 'app/java_script/app.js' %}"></script>
     <link rel="stylesheet" href="{% static 'app/css/app.css' %}">
 </head>
 <body>
@@ -25,7 +27,7 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="main_buttons">
-            <textarea placeholder="Падтрымлівае польскую, нямецкую, украінскую, рускую, французскую, англійскую мовы" rows="8" cols="80" name="meaning" id="meaning">{{ result }}</textarea><br>
+            <textarea aria-required="true" placeholder="Падтрымлівае польскую, нямецкую, украінскую, рускую, французскую, англійскую мовы" rows="8" cols="80" name="meaning" id="meaning" required>{{ result }}</textarea><br>
             <button type="submit" id='submit' class="btn btn-primary" style="float: left; margin-top: 5%">Send</button>
             <button type="reset" id="reset" class="btn btn-danger" style="float: right; margin-top: 5%">Clear</button>
         </div>
