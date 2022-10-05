@@ -27,7 +27,7 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="main_buttons">
-            <textarea aria-required="true" placeholder="Падтрымлівае польскую, нямецкую, украінскую, рускую, французскую, англійскую мовы" rows="8" cols="80" name="meaning" id="meaning">{{ result }}</textarea><br>
+            <textarea required placeholder="Падтрымлівае польскую, нямецкую, украінскую, рускую, французскую, англійскую мовы" rows="8" cols="80" name="meaning" id="meaning">{{ result }}</textarea><br>
             <button type="submit" id='submit' class="btn btn-primary" style="float: left; margin-top: 5%">Send</button>
             <button type="reset" id="reset" class="btn btn-danger" style="float: right; margin-top: 5%">Clear</button>
         </div>
