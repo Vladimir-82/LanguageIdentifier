@@ -1,7 +1,14 @@
-from langdetect import detect_langs
-from django.shortcuts import render
 from gtts import gTTS
+from langdetect import detect_langs
+import vlc
+
 from io import BytesIO
+from django.shortcuts import render
+from pathlib import Path
+
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 
 def index(request):
@@ -13,10 +20,13 @@ def index(request):
                      }
         detected = languages.get(answer, 'Невядомая мова!')
 
-        mp3_fp = BytesIO()
+        tts = gTTS(action, lang=answer)
+        tts.save('media/hello.mp3')
 
-        tts = gTTS(action, lang=)
-        tts.write_to_fp(mp3_fp)
+        path = ''.join(("file://", str(BASE_DIR), '/media', "/file.wav"))
+        p = vlc.MediaPlayer(path)
+        p.play()
+
 
 
         context = {"answer": detected, "result": action}
