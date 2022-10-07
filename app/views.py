@@ -21,11 +21,11 @@ def index(request):
         detected = languages.get(answer, 'Невядомая мова!')
 
         tts = gTTS(action, lang=answer)
-        tts.save('media/hello.mp3')
+        tts.save('media/file.mp3')
 
-        path = ''.join(("file://", str(BASE_DIR), '/media', "/file.wav"))
-        p = vlc.MediaPlayer(path)
-        p.play()
+
+        # p = vlc.MediaPlayer(path)
+        # p.play()
 
 
 
