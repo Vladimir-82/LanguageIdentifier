@@ -17,18 +17,18 @@ def index(request):
                 'ru': 'Руская', 'uk': 'Украінская', 'pl': 'Польская'
                      }
         detected = languages.get(answer, 'Невядомая мова!')
-        # mp3_fp = BytesIO()
-        # tts = gTTS(action, lang=answer)
-        # tts.write_to_fp(mp3_fp)
-        # object = Track.objects.create(title='name')
-        # name = ''.join(('track', '-', str(object.pk)))
-        # object.title = name
-        # object.file.save(name=name,
-        #                  content=ContentFile(mp3_fp.getvalue()),
-        #                  save=False
-        #                 )
-        # object.save()
-        context = {"answer": detected, "result": action}
+        mp3_fp = BytesIO()
+        tts = gTTS(action, lang=answer)
+        tts.write_to_fp(mp3_fp)
+        object = Track.objects.create(title='name')
+        name = ''.join(('track', '-', str(object.pk)))
+        object.title = name
+        object.file.save(name=name,
+                         content=ContentFile(mp3_fp.getvalue()),
+                         save=False
+                        )
+        object.save()
+        context = {"answer": detected, "result": action, 'object': object}
         return render(request, 'app/index.html', context=context)
     else:
         context = {"answer": ""}
