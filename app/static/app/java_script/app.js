@@ -3,13 +3,21 @@ $(document).ready (function () {
         document.getElementById("meaning").innerHTML = '';
     });
 });
-$(document).ready (function () {
-    $("#play").click(function () {
-    var myAudio = document.getElementById("myTune");
-        if (myAudio.paused) {
+
+
+function playTrack () {
+        var myAudio = document.getElementById("myTune");
         myAudio.play();
-        } else {
-            myAudio.pause();
-                }
-    });
+        $("#play").hide();
+        $("#pause").show();
+        }
+function pauseTrack () {
+        var myAudio = document.getElementById("myTune");
+        myAudio.pause();
+        $("#play").show();
+        $("#pause").hide();
+        }
+$(document).ready (function () {
+    $("#play").bind ("click", playTrack);
+    $("#pause").bind ("click", pauseTrack);
 });

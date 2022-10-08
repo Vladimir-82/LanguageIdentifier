@@ -44,7 +44,8 @@
         </div>
         <div class="inner">
             <audio id="myTune" src="{{ object.file.url }}"></audio>
-            <button type="button" id="play" class="btn btn-danger">Play/Pause</button>
+            <button type="button" id="play" onclick="return false" class="btn btn-outline-success">Play</button>
+            <button type="button" id="pause" style="display:none" onclick="return false" class="btn btn-outline-success">Pause</button>
         </div>
     {% endif %}
 </body>
