@@ -28,7 +28,7 @@ def index(request):
                          save=False
                         )
         object.save()
-        context = {"answer": detected, "result": action, 'object': object}
+        context = {"answer": detected, "result": action}
         return render(request, 'app/index.html', context=context)
     else:
         context = {"answer": ""}
