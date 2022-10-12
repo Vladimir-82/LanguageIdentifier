@@ -20,3 +20,10 @@ $(document).ready (function () {
     $("#play").bind ("click", playTrack);
     $("#pause").bind ("click", pauseTrack);
 });
+
+
+$(document).ready (function () {
+    $(function() {
+     $('#myTune').transloadit();
+    });
+});
