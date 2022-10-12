@@ -83,6 +83,9 @@ DATABASES = {
     }
 }
 
+# db_from_env = dj_database_url.config()
+# DATABASES['default'].update(db_from_env)
+
 if "DATABASE_URL" in os.environ:
     # Configure Django for DATABASE_URL environment variable.
     DATABASES["default"] = dj_database_url.config(

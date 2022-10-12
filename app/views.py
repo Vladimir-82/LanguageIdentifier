@@ -27,7 +27,7 @@ def index(request):
                          content=ContentFile(mp3_fp.getvalue()),
                          save=False
                         )
-        object.save()
+        # object.save()
         context = {"answer": detected, "result": action, 'object': object}
         return render(request, 'app/index.html', context=context)
     else:
