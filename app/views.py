@@ -7,16 +7,15 @@ from django.core.files.base import ContentFile
 from .models import Track
 
 
-
+languages = {'en': 'Англійская', 'de': 'Нямецкая', 'fr': 'Французская',
+                'ru': 'Руская', 'uk': 'Украінская', 'pl': 'Польская'
+                     }
 
 
 def index(request):
     if request.method == 'POST':
         action = request.POST['meaning']
         answer = detect_langs(action)[0].__str__().split(':')[0]
-        languages = {'en': 'Англійская', 'de': 'Нямецкая', 'fr': 'Французская',
-                'ru': 'Руская', 'uk': 'Украінская', 'pl': 'Польская'
-                     }
         detected = languages.get(answer, 'Невядомая мова!')
         mp3_fp = BytesIO()
         tts = gTTS(action, lang=answer)
