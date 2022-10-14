@@ -1,5 +1,6 @@
 from gtts import gTTS
 from langdetect import detect_langs
+from googletrans import Translator
 from io import BytesIO
 from django.shortcuts import render
 from django.core.files.base import ContentFile
@@ -28,7 +29,13 @@ def index(request):
                          save=False
                         )
         object.save()
-        context = {"answer": detected, "result": action, 'object': object}
+
+        translator = Translator()
+        translate = translator.translate(action, src=answer, dest='be')
+        translate_text = translate.text
+
+        context = {"answer": detected, "result": action,
+                   'object': object, "translate_text": translate_text}
         return render(request, 'app/index.html', context=context)
     else:
         context = {"answer": ""}

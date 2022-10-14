@@ -38,14 +38,18 @@
     </div>
     {% if answer %}
         <div class="inner">
-            <div class="main_buttons">
-        </div>
             <h2 style="color: darkred">{{ answer }}</h2>
         </div>
         <div class="inner">
             <audio id="myTune" src="{{ object.file.url }}"></audio>
             <button type="button" id="play" onclick="return false" class="btn btn-outline-success">Play</button>
             <button type="button" id="pause" style="display:none" onclick="return false" class="btn btn-outline-success">Pause</button>
+        </div>
+        <div class="inner">
+        <div class="inner">
+            <h3 style="color: darkblue">Пераклад:</h3>
+        </div>
+        <textarea required placeholder="Пераклад" rows="8" cols="80" name="translate" id="translate">{{ translate_text }}</textarea>
         </div>
     {% endif %}
 </body>
