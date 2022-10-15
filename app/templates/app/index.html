@@ -51,7 +51,7 @@
             <h2 style="color: darkred">{{ answer }}</h2>
         </div>
         <div class="inner">
-            <audio id="myTune" src="{{ object.file.url }}"></audio>
+            <audio id="myTune" src="{{ object.file_one.url }}"></audio>
             <button type="button" id="play" onclick="return false" class="btn btn-outline-success">Play</button>
             <button type="button" id="pause" style="display:none" onclick="return false" class="btn btn-outline-success">Pause</button>
         </div></br>
@@ -61,6 +61,13 @@
         <div class="inner">
             <textarea required placeholder="Пераклад" rows="8" cols="80" name="translate" id="translate">{{ translate_text }}</textarea>
         </div>
+
+        <div class="inner">
+            <audio id="myTunetrans" src="{{ object.file_two.url }}"></audio>
+            <button type="button" id="playtrans" onclick="return false" class="btn btn-outline-success">Play</button>
+            <button type="button" id="pausetrans" style="display:none" onclick="return false" class="btn btn-outline-success">Pause</button>
+        </div></br>
+
     {% endif %}
 </body>
 </html>

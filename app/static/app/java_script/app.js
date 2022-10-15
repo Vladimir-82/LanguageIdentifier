@@ -20,3 +20,24 @@ $(document).ready (function () {
     $("#play").bind ("click", playTrack);
     $("#pause").bind ("click", pauseTrack);
 });
+
+
+
+
+
+function playTracktrans () {
+    var myTrans = document.getElementById("myTunetrans");
+    myTrans.play();
+    $("#playtrans").hide();
+    $("#pausetrans").show();
+    }
+function pauseTracktrans () {
+    var myTrans = document.getElementById("myTunetrans");
+    myTrans.pause();
+    $("#playtrans").show();
+    $("#pausetrans").hide();
+    }
+$(document).ready (function () {
+    $("#playtrans").bind ("click", playTracktrans);
+    $("#pausetrans").bind ("click", pauseTracktrans);
+});
