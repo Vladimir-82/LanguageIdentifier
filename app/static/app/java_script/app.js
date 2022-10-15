@@ -22,9 +22,6 @@ $(document).ready (function () {
 });
 
 
-
-
-
 function playTracktrans () {
     var myTrans = document.getElementById("myTunetrans");
     myTrans.play();

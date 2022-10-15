@@ -43,31 +43,26 @@
             </div></br>
         </form>
     </div>
-    <div class="inner">
-        <h3 style="color: darkblue">Асноўная мова тэксту:</h3>
-    </div>
     {% if answer %}
-        <div class="inner">
-            <h2 style="color: darkred">{{ answer }}</h2>
-        </div>
         <div class="inner">
             <audio id="myTune" src="{{ object.file_one.url }}"></audio>
             <button type="button" id="play" onclick="return false" class="btn btn-outline-success">Play</button>
             <button type="button" id="pause" style="display:none" onclick="return false" class="btn btn-outline-success">Pause</button>
+        </div>
+        <div class="inner">
+            <h3 style="color: darkblue">Асноўная мова тэксту: {{ answer }}</h3>
         </div></br>
         <div class="inner">
-            <h3 style="color: darkblue">Пераклад:</h3>
-        </div>
-        <div class="inner">
+            <div class="inner">
+                <h3 style="color: darkblue">Пераклад: {{ language_output }} мова</h3>
+            </div>
             <textarea required placeholder="Пераклад" rows="8" cols="80" name="translate" id="translate">{{ translate_text }}</textarea>
         </div>
-
         <div class="inner">
             <audio id="myTunetrans" src="{{ object.file_two.url }}"></audio>
             <button type="button" id="playtrans" onclick="return false" class="btn btn-outline-success">Play</button>
             <button type="button" id="pausetrans" style="display:none" onclick="return false" class="btn btn-outline-success">Pause</button>
         </div></br>
-
     {% endif %}
 </body>
 </html>
