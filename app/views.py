@@ -48,7 +48,7 @@ def index(request):
 
             language_output = LANGUAGES.get(translate_to)
             context = {"answer": detected, "result": action,
-                       "object": object, "translate_text": translate_text,
+                        "translate_text": translate_text,
                        "language_output": language_output}
             return render(request, "app/index.html", context=context)
     else:
