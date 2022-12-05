@@ -7,11 +7,11 @@ from .models import Track
 from .utils import record_track
 
 
-LANGUAGES = {'en': 'Англійская', 'de': 'Нямецкая', 'fr': 'Французская',
-                'ru': 'Руская', 'uk': 'Украінская', 'pl': 'Польская',
+LANGUAGES = {'en': 'English', 'de': 'Deutsch', 'fr': 'Français',
+                'ru': 'Русский', 'uk': 'Українська', 'pl': 'Polski',
                      }
-TRANSLATE = {'Англійская': 'en', 'Нямецкая': 'de', 'Французская': 'fr',
-                'Руская': 'ru', 'Украінская': 'uk', 'Польская': 'pl',
+TRANSLATE = {'English': 'en', 'Deutsch': 'de', 'Français': 'fr',
+                'Русский': 'ru', 'Українська': 'uk', 'Polski': 'pl',
 
 }
 
@@ -21,9 +21,9 @@ def index(request):
         try:
             answer = detect_langs(action)[0].__str__().split(':')[0]
         except Exception:
-            return HttpResponse('Некарэктная ці недастатковая інфармацыя!')
+            return HttpResponse('Incorrect or insufficient information!')
         else:
-            detected = LANGUAGES.get(answer, 'Невядомая мова!')
+            detected = LANGUAGES.get(answer, 'Unknown language!')
             language = request.POST['languages']
             translate_to = TRANSLATE.get(language, 'en')
             translator = Translator()
