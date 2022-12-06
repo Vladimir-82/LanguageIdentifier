@@ -34,16 +34,16 @@ def index(request):
             name = ''.join(('track', '-', str(object.pk)))
             object.title = name
 
-            # mp3_file_1 = record_track(text=action, lang=answer)
-            # object.file_one.save(name=name + '_1',
-            #                  content=ContentFile(mp3_file_1.getvalue()),
-            #                  save=False
-            #                     )
-            # mp3_file_2 = record_track(text=translate_text, lang=translate_to)
-            # object.file_two.save(name=name + '_2',
-            #                      content=ContentFile(mp3_file_2.getvalue()),
-            #                      save=False
-            #                      )
+            mp3_file_1 = record_track(text=action, lang=answer)
+            object.file_one.save(name=name + '_1',
+                             content=ContentFile(mp3_file_1.getvalue()),
+                             save=False
+                                )
+            mp3_file_2 = record_track(text=translate_text, lang=translate_to)
+            object.file_two.save(name=name + '_2',
+                                 content=ContentFile(mp3_file_2.getvalue()),
+                                 save=False
+                                 )
             object.save()
 
             language_output = LANGUAGES.get(translate_to)
