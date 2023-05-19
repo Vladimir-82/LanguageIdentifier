@@ -28,7 +28,8 @@ def index(request):
             language = request.POST['languages']
             translate_to = TRANSLATE.get(language, 'en')
             translator = Translator()
-            translate = translator.translate(action, src=answer, dest=translate_to)
+            translate = translator.translate(action, src=answer,
+                                             dest=translate_to)
             translate_text = translate.text
 
             object = Track.objects.create()
