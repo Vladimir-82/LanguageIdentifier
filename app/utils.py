@@ -4,6 +4,9 @@ from io import BytesIO
 
 
 def record_track(text: str, lang: str):
+    """
+    function to record text
+    """
     mp3_fp = BytesIO()
     tts = gTTS(text, lang=lang)
     tts.write_to_fp(mp3_fp)
