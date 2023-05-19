@@ -16,9 +16,7 @@ TRANSLATE = {'English': 'en', 'Deutsch': 'de', 'Français': 'fr',
 }
 
 def index(request):
-    """
-    Main function detected, translate and record text
-    """
+    '''main function to define, translate and write text'''
     if request.method == 'POST':
         action = request.POST['meaning']
         try:
@@ -30,9 +28,7 @@ def index(request):
             language = request.POST['languages']
             translate_to = TRANSLATE.get(language, 'en')
             translator = Translator()
-            translate = translator.translate(action, src=answer,
-                                             dest=translate_to
-                                             )
+            translate = translator.translate(action, src=answer, dest=translate_to)
             translate_text = translate.text
 
             object = Track.objects.create()
